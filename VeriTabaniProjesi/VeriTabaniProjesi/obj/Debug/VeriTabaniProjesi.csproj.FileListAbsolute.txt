@@ -1,0 +1,12 @@
+c:\users\user\documents\visual studio 2015\Projects\VeriTabaniProjesi\VeriTabaniProjesi\bin\Debug\VeriTabaniProjesi.exe.config
+c:\users\user\documents\visual studio 2015\Projects\VeriTabaniProjesi\VeriTabaniProjesi\bin\Debug\VeriTabaniProjesi.exe
+c:\users\user\documents\visual studio 2015\Projects\VeriTabaniProjesi\VeriTabaniProjesi\bin\Debug\VeriTabaniProjesi.pdb
+c:\users\user\documents\visual studio 2015\Projects\VeriTabaniProjesi\VeriTabaniProjesi\obj\Debug\VeriTabaniProjesi.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\VeriTabaniProjesi\VeriTabaniProjesi\obj\Debug\VeriTabaniProjesi.Form1.resources
+c:\users\user\documents\visual studio 2015\Projects\VeriTabaniProjesi\VeriTabaniProjesi\obj\Debug\VeriTabaniProjesi.Properties.Resources.resources
+c:\users\user\documents\visual studio 2015\Projects\VeriTabaniProjesi\VeriTabaniProjesi\obj\Debug\VeriTabaniProjesi.csproj.GenerateResource.Cache
+c:\users\user\documents\visual studio 2015\Projects\VeriTabaniProjesi\VeriTabaniProjesi\obj\Debug\VeriTabaniProjesi.exe
+c:\users\user\documents\visual studio 2015\Projects\VeriTabaniProjesi\VeriTabaniProjesi\obj\Debug\VeriTabaniProjesi.pdb
+c:\users\user\documents\visual studio 2015\Projects\VeriTabaniProjesi\VeriTabaniProjesi\bin\Debug\MySql.Data.dll
+c:\users\user\documents\visual studio 2015\Projects\VeriTabaniProjesi\VeriTabaniProjesi\bin\Debug\Google.Protobuf.dll
+c:\users\user\documents\visual studio 2015\Projects\VeriTabaniProjesi\VeriTabaniProjesi\bin\Debug\MySql.Data.xml
