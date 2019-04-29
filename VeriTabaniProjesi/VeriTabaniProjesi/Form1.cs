@@ -33,9 +33,7 @@ namespace VeriTabaniProjesi
                 dataGridView1.DataSource = dt;
                 baglanti.Close();
                 label6.Text = "Bağlantı başarılı...";
-
                 veriCek();
-
             }
             catch (Exception e)
             {
@@ -46,11 +44,19 @@ namespace VeriTabaniProjesi
 
         private void veriCek()
         {
-            textBox1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            textBox3.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            textBox4.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            textBox5.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            //try
+            {
+                textBox1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                textBox3.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                textBox4.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                textBox5.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                //label5.Text = dataGridView1.RowCount.ToString();
+            }
+            //catch(Exception e)
+            //{
+            //    label6.Text = "Aradığınız Kayıt Bulunamadı";
+            //}
         }
 
         private void PasifButton()
@@ -79,7 +85,6 @@ namespace VeriTabaniProjesi
             textBox3.Clear();
             textBox4.Clear();
             textBox5.Clear();
-
         }
 
         private void AktiftextBox()
@@ -89,7 +94,7 @@ namespace VeriTabaniProjesi
             textBox3.Enabled = true;
             textBox4.Enabled = true;
             textBox5.Enabled = true;
-
+            textBox6.Enabled = false;
         }
 
         private void PasiftextBox()
@@ -99,7 +104,7 @@ namespace VeriTabaniProjesi
             textBox3.Enabled = false;
             textBox4.Enabled = false;
             textBox5.Enabled = false;
-
+            textBox6.Enabled = true;
         }
 
 
@@ -109,6 +114,7 @@ namespace VeriTabaniProjesi
             button4.Enabled = false;
             button5.Enabled = false;
             Listele();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -133,8 +139,6 @@ namespace VeriTabaniProjesi
             AktifButton();
             Sil();
             Listele();
-            
-
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -145,8 +149,19 @@ namespace VeriTabaniProjesi
                 Guncelle();
             AktifButton();
             Listele();
+            
         }
 
+        private void Ara(string paramatre)
+        {
+            baglanti.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM musteriler WHERE musteriNo like '" + paramatre + "%'", baglanti);
+            da = new MySqlDataAdapter(cmd);
+            dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            baglanti.Close();
+        }
         private void Ekle()
         {
             baglanti.Open();
@@ -170,7 +185,6 @@ namespace VeriTabaniProjesi
             MySqlCommand cmd = new MySqlCommand("delete from musteriler where musteriNo='" + textBox1.Text + "'", baglanti);
             cmd.ExecuteNonQuery();
             baglanti.Close();
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -197,6 +211,12 @@ namespace VeriTabaniProjesi
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            veriCek();
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            Ara(textBox6.Text);
             veriCek();
         }
     }
