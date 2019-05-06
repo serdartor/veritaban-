@@ -39,26 +39,23 @@ namespace VeriTabaniProjesi
             {
                 label6.Text = "Bağlantı gerçekleştirilemedi. " + e.ToString();
             }
-            
         }
-
         private void veriCek()
         {
-            //try
+            try
             {
                 textBox1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                 textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
                 textBox3.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
                 textBox4.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
                 textBox5.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                //label5.Text = dataGridView1.RowCount.ToString();
+                label6.Text = (dataGridView1.RowCount - 1).ToString()+" Kayıt Bulundu.";
             }
-            //catch(Exception e)
-            //{
-            //    label6.Text = "Aradığınız Kayıt Bulunamadı";
-            //}
+            catch(Exception e)
+            {
+                label6.Text = "Aradığınız Kayıt Bulunamadı";
+            }
         }
-
         private void PasifButton()
         {
             button1.Enabled = false;
@@ -77,7 +74,6 @@ namespace VeriTabaniProjesi
             button5.Enabled = false;
             button6.Enabled = true;
         }
-
         private void Temizle()
         {
             textBox1.Clear();
@@ -86,7 +82,6 @@ namespace VeriTabaniProjesi
             textBox4.Clear();
             textBox5.Clear();
         }
-
         private void AktiftextBox()
         {
             textBox1.Enabled = true;
@@ -96,7 +91,6 @@ namespace VeriTabaniProjesi
             textBox5.Enabled = true;
             textBox6.Enabled = false;
         }
-
         private void PasiftextBox()
         {
             textBox1.Enabled = false;
@@ -106,41 +100,32 @@ namespace VeriTabaniProjesi
             textBox5.Enabled = false;
             textBox6.Enabled = true;
         }
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
             PasiftextBox();
             button4.Enabled = false;
             button5.Enabled = false;
             Listele();
-            
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             AktiftextBox();
             PasifButton();
             Temizle();
             secim = "Ekle";
-
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             AktiftextBox();
             PasifButton();
             secim = "Güncelle";
-
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             AktifButton();
             Sil();
             Listele();
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             if (secim == "Ekle")
@@ -148,10 +133,10 @@ namespace VeriTabaniProjesi
             else if (secim == "Güncelle")
                 Guncelle();
             AktifButton();
+            PasiftextBox();
             Listele();
-            
+            veriCek();
         }
-
         private void Ara(string paramatre)
         {
             baglanti.Open();
@@ -169,16 +154,13 @@ namespace VeriTabaniProjesi
             cmd.ExecuteNonQuery();
             baglanti.Close();
         }
-
         private void Guncelle()
         {
             baglanti.Open();
             MySqlCommand cmd = new MySqlCommand("Update musteriler set musteriAdi='" + textBox2.Text + "',musteriSoyadi='" + textBox3.Text + "', musteriEposta='" + textBox4.Text + "', musteriTelefon='" + textBox5.Text + "' where musteriNo='"+textBox1.Text+"'",baglanti);
             cmd.ExecuteNonQuery();
             baglanti.Close();
-
         }
-
         private void Sil()
         {
             baglanti.Open();
@@ -186,34 +168,24 @@ namespace VeriTabaniProjesi
             cmd.ExecuteNonQuery();
             baglanti.Close();
         }
-
         private void button5_Click(object sender, EventArgs e)
         {
             AktifButton();
             PasiftextBox();
-            Temizle();
+            veriCek();
         }
-
         private void button6_Click(object sender, EventArgs e)
         {
             Listele();
         }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
         }
-
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             veriCek();
         }
-
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
             Ara(textBox6.Text);

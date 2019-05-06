@@ -95,7 +95,6 @@
             this.label5.Size = new System.Drawing.Size(101, 18);
             this.label5.TabIndex = 4;
             this.label5.Text = "Müşteri Telefon :";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // textBox1
             // 
